@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 
+const router = express.Router();
+
 const app = express();
 // app.use(express.json());
 
@@ -26,3 +28,5 @@ app.get('/image', (req, res) => {
 app.get('/', (req, res) => {
   res.end(req.query.name ? 'Hello ' + req.query.name : 'Hello you');
 });
+
+app.use('.', router);
